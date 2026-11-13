@@ -4,7 +4,7 @@ Este proyecto consiste en una API hexagonal construida con Django, Oracle y Reac
 
 ## Integrantes y Reparto de Entidades (Anexo A)
 * **Vicente Sepúlveda:** Responsable de todas las entidades (`pedidos`, `detalle_pedido`, `mesas`, `categorias_plato`, `platos`) y la configuración total de la base de datos.
-* **[Nombre de tu compañero]:** Apoyo general.
+* **Benjamin Baeza:** Apoyo en creacion de tablas y organizacion.
 
 ## Avance Semana 1
 * Diseño del Modelo Entidad-Relación y el Diccionario de Datos (ubicados en `docs/`).
