@@ -33,3 +33,21 @@ Copiar el archivo .env.example como .env y rellenar los datos del esquema FreeSQ
 
 comprobar conexion base de datos:
 python manage.py check --database negocio
+
+
+
+
+## Avance Semana 2: Capas Hexagonales de Entidades Maestras
+
+Se implementó la arquitectura hexagonal de adentro hacia afuera dentro de la aplicación `restaurante`, respetando estrictamente la **Regla de Dependencia** (el núcleo de negocio no depende de Django ni de Oracle):
+
+* **Capa de Dominio (`restaurante/domain/`):**
+  * **Entidades (`entities.py`):** Modelos puros en Python (`@dataclass`) para las 5 tablas del sistema (`Mesa`, `CategoriaPlato`, `Plato`, `Pedido` y `DetallePedido`).
+  * **Puertos (`repositories.py`):** Interfaces abstractas (`ABC`) que definen los contratos de persistencia para las 5 entidades.
+  * **Excepciones (`exceptions.py`):** Excepciones personalizadas de negocio (`EntidadNoEncontradaError`, `RegistroDuplicadoError`, `BorradoProtegidoError` y `ReglaNegocioInvalidaError`).
+* **Capa de Aplicación (`restaurante/application/use_cases/`):**
+  * Casos de uso CRUD completos para las 3 entidades maestras (**Mesas**, **Categorías de Plato** y **Platos**).
+  * Validación de reglas de negocio, control de registros duplicados y **borrado protegido** (impide eliminar mesas con pedidos, categorías con platos o platos incluidos en detalles de pedido).
+* **Capa de Infraestructura (`restaurante/infrastructure/`):**
+  * **Modelos ORM (`models.py`):** Mapeo contra Oracle FreeSQL con `managed = False` y `CompositePrimaryKey` en `detalle_pedido`.
+  * **Repositorios (`repositories.py`):** Implementaciones concretas (`DjangoMesaRepository`, `DjangoCategoriaPlatoRepository`, `DjangoPlatoRepository`) que traducen entre modelos ORM y entidades de dominio.
