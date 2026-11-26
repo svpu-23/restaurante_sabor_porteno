@@ -1,0 +1,3 @@
+from .mesa_repository import DjangoMesaRepository
+from .categoria_plato_repository import DjangoCategoriaPlatoRepository
+from .plato_repository import DjangoPlatoRepository

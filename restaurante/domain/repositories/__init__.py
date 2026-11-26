@@ -1,0 +1,5 @@
+from .mesa_repository import MesaRepository
+from .categoria_plato_repository import CategoriaPlatoRepository
+from .plato_repository import PlatoRepository
+from .pedido_repository import PedidoRepository
+from .detalle_pedido_repository import DetallePedidoRepository
