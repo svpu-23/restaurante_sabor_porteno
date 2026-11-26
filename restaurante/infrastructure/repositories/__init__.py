@@ -1,3 +1,5 @@
 from .mesa_repository import DjangoMesaRepository
 from .categoria_plato_repository import DjangoCategoriaPlatoRepository
 from .plato_repository import DjangoPlatoRepository
+from .pedido_repository import DjangoPedidoRepository
+from .detalle_pedido_repository import DjangoDetallePedidoRepository

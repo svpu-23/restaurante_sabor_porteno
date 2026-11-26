@@ -21,6 +21,10 @@ class MesaConPedidosError(RestauranteApplicationError):
     pass
 
 
+class MesaInactivaError(RestauranteApplicationError):
+    pass
+
+
 # --- Excepciones de Categorías de Plato ---
 class CategoriaNoEncontradaError(RestauranteApplicationError):
     pass
@@ -44,4 +48,29 @@ class PlatoDuplicadoError(RestauranteApplicationError):
 
 
 class PlatoEnPedidosError(RestauranteApplicationError):
+    pass
+
+
+class PlatoNoDisponibleError(RestauranteApplicationError):
+    pass
+
+
+# --- Excepciones de Pedidos y Detalle ---
+class PedidoNoEncontradoError(RestauranteApplicationError):
+    pass
+
+
+class PedidoCerradoError(RestauranteApplicationError):
+    pass
+
+
+class PedidoConDetallesError(RestauranteApplicationError):
+    pass
+
+
+class DetallePedidoNoEncontradoError(RestauranteApplicationError):
+    pass
+
+
+class DetallePedidoDuplicadoError(RestauranteApplicationError):
     pass
